@@ -1,9 +1,2 @@
-<<<<<<< HEAD
 // inserts document into a collection name school
 db.school.insert( { name: "Holberton school" } )
-=======
-// Write a script that inserts a document in the collection school
-// The document must have one attribute name with value “Holberton school”
-// The database name will be passed as option of mongo command
-db.school.insert({"name": "Holberton school"})
->>>>>>> cf076995d6a71022a7a491972e849f4434e79222

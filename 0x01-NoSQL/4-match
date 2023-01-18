@@ -1,7 +1,2 @@
 // Write a script that lists all documents with name="Holberton school" in the collection school
-<<<<<<< HEAD
 db.school.find({ "name" : "Holberton school" })
-=======
-// The database name will be passed as option of mongo command
-db.school.find({name: "Holberton school"})
->>>>>>> cf076995d6a71022a7a491972e849f4434e79222
