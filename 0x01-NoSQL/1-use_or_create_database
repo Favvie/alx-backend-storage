@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+// create or use a database
+use my_db
+=======
+// Write a script that creates or uses the database my_db
+use my_db;
+>>>>>>> cf076995d6a71022a7a491972e849f4434e79222
