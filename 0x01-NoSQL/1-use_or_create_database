@@ -1,0 +1,2 @@
+// use (if existing) or create new database
+use my_db
