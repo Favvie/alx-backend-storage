@@ -5,7 +5,7 @@
 from pymongo import MongoClient
 
 
-if __name__ == "__main__":
+def main():
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx = client.logs.nginx
 
@@ -15,5 +15,9 @@ if __name__ == "__main__":
     for methodN in methods:
         print(f"\tmethod {methodN}:\
             {nginx.count_documents({'method': methodN})}")
-    print(f'{nginx.count_documents({"method": "GET", "path": "/status"})} \
-        status check')
+    print(f'{nginx.count_documents({"method": "GET", "path": "/status"})}\
+          status check')
+
+
+if __name__ == "__main__":
+    main()
