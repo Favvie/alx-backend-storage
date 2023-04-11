@@ -14,10 +14,10 @@ def main():
     print('Methods:')
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for methodN in methods:
-        print(f"\tmethod {methodN}:\
-            {nginx.count_documents({'method': methodN})}")
-    print(f'{nginx.count_documents({"method": "GET", "path": "/status"})}\
-          status check')
+        print(f"""\tmethod {methodN}: {nginx.count_documents(
+            {'method': methodN})}""")
+    print(f"""{nginx.count_documents(
+        {"method": "GET", "path": "/status"})} status check""")
 
 
 if __name__ == "__main__":
