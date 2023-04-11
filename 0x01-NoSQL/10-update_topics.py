@@ -3,4 +3,5 @@
 
 
 def update_topics(mongo_collection, name, topics):
+    """update a doc"""
     mongo_collection.update_one({"name": name}, {"$set": {"topics": topics}})
