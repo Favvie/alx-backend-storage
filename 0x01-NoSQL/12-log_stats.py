@@ -6,6 +6,7 @@ from pymongo import MongoClient
 
 
 def main():
+    """main function"""
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx = client.logs.nginx
 
