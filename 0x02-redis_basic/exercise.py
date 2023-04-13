@@ -22,7 +22,11 @@ class Cache:
         value = self._redis.get(key)
         if key is None:
             return None
-        value = fn(value)
+        try:
+            if fn is not None:
+                value = fn(value)
+        except Exception:
+            return None
         return value
 
     def get_str(self, key: str) -> str:
