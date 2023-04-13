@@ -37,12 +37,23 @@ def replay(method):
     """get the history of a function"""
     name = method.__qualname__
     cache = redis.Redis()
-    count = int(cache.get(name).decode('utf-8'))
+    try:
+        count = int(cache.get(name).decode('utf-8'))
+    except Exception:
+        c = 0
     print(f"{name} ws called {count} times:")
     inputs = cache.lrange(name + ":inputs", 0, -1)
     outputs = cache.lrange(name + ":outputs", 0, -1)
 
     for key, value in zip(inputs, outputs):
+        try:
+            key = key.decode('utf-8')
+        except Exception:
+            key = ''
+        try:
+            value = value.decode('utf-8')
+        except Exception:
+            value = ''
         print(f"{name}(*{key.decode('utf-8')}) -> {value.decode('utf-8')}")
 
 
