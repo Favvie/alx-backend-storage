@@ -20,4 +20,13 @@ class Cache:
 
     def get(self, key: str, fn: Callable):
         value = self._redis.get(key)
-        fn(value)
+        if key is None:
+            return None
+        value = fn(value)
+        return value
+
+    def get_str(self, key: str) -> str:
+        return self.get(key, lambda x: x.decode('utf-8'))
+
+    def get_int(self, key: str) -> int:
+        return self.get(key, lambda x: int(x))
