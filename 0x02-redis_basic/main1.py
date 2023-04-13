@@ -19,3 +19,5 @@ outputs = cache._redis.lrange("{}:outputs".
 
 print("inputs: {}".format(inputs))
 print("outputs: {}".format(outputs))
+# print(cache._redis.keys())
+
