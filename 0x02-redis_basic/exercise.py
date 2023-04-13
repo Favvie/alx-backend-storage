@@ -58,8 +58,8 @@ class Cache:
     def get(self, key: str, fn: Optional[Callable] = None):
         value = self._redis.get(key)
         if fn:
-            fnvalue = fn(value)
-        return fnvalue
+            value = fn(value)
+        return value
 
     def get_str(self, key: str) -> str:
         return self.get(key, lambda x: x.decode('utf-8'))
