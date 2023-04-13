@@ -57,9 +57,7 @@ class Cache:
 
     def get(self, key: str, fn: Optional[Callable] = None):
         value = self._redis.get(key)
-        if key is None:
-            return None
-        if fn is not None and callable(fn):
+        if fn:
             fnvalue = fn(value)
         return fnvalue
 
