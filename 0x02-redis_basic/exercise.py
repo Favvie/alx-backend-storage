@@ -33,14 +33,14 @@ def call_history(method: Callable) -> Callable:
     return wrapper
 
 
-def replay(method):
+def replay(method: Callable):
     """get the history of a function"""
     name = method.__qualname__
     cache = redis.Redis()
     try:
         count = int(cache.get(name).decode('utf-8'))
     except Exception:
-        c = 0
+        count = 0
     print(f"{name} ws called {count} times:")
     inputs = cache.lrange(name + ":inputs", 0, -1)
     outputs = cache.lrange(name + ":outputs", 0, -1)
