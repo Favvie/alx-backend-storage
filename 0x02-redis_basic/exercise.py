@@ -55,7 +55,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable = None):
+    def get(self, key: str, fn: Optional[Callable] = None):
         value = self._redis.get(key)
         if key is None:
             return None
