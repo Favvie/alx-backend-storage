@@ -59,12 +59,9 @@ class Cache:
         value = self._redis.get(key)
         if key is None:
             return None
-        try:
-            if fn is not None and callable(fn):
-                value = fn(value)
-        except Exception:
-            return None
-        return value
+        if fn is not None and callable(fn):
+            fnvalue = fn(value)
+        return fnvalue
 
     def get_str(self, key: str) -> str:
         return self.get(key, lambda x: x.decode('utf-8'))
