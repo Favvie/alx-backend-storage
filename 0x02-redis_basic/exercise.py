@@ -67,4 +67,9 @@ class Cache:
         return self.get(key, lambda x: x.decode('utf-8'))
 
     def get_int(self, key: str) -> int:
-        return self.get(key, lambda x: int(x))
+        value = self.get(key)
+        try:
+            value = int(value.decode('utf-8'))
+        except Exception:
+            value = 0
+        return value
